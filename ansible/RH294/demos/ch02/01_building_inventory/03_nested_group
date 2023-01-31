@@ -1,0 +1,12 @@
+[webservers]
+web1.w-virginia.com
+web2.w-virginia.com
+web02.ex25-linux.net
+
+[dbservers]
+db1.example.net
+db2.example.net
+
+[lampstack:children]
+webservers
+dbservers

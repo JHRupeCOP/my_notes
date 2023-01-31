@@ -1,0 +1,12 @@
+- name: Template to create a hosts file
+  hosts: all
+  vars:  
+    myvar: "{{hostvars}}"
+  tasks:
+    - name: installing J2 template
+      ansible.builtin.template:
+        src: hosts.j2
+        dest: /tmp/hosts
+        owner: root
+        group: root
+        mode: 0644

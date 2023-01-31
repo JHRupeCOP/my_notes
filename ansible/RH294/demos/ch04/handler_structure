@@ -1,0 +1,45 @@
+#Handler Structure
+
+---
+- name: This is play 1
+  hosts: dbservers
+  tasks:
+    - name: This is task 1
+      <module>:
+        key1: value1
+        key2: value2
+      notify:
+        - A
+  
+    - name: This is task 2
+      <module>:
+        key1: value1
+        key2: value2
+      notify:
+        - B
+
+    - name: This is task 3
+      <module>:
+        key1: value1
+        key2: value2
+      notify:
+        - run this handler
+
+  handlers:
+    - name: run this handler
+      <module>:
+        key1: value1
+        key2: value2
+
+    - name: B
+      <module>:
+        key1: value1
+        key2: value2
+
+    - name: A
+      <module>:
+        key1: value1
+        key2: value2
+...
+
+

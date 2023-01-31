@@ -1,0 +1,30 @@
+- name: Demonstrate error handing in playbooks
+  hosts: serverb
+  force_handlers: yes
+  tasks:
+  - name: Install Postfix
+    ansible.builtin.yum:
+      name: postfix
+      state: installed
+    notify:
+      - start_postfix
+
+  - name: Install BADpackage
+    ansible.builtin.yum:
+      name: badpackage
+      state: installed
+
+  - name: Displaying a message
+    ansible.builtin.debug:
+      msg: "If Badpackage fails I dont display"
+
+
+  handlers:
+    - name: start_postfix
+      ansible.builtin.service:
+        name: postfix
+        state: started
+        enabled: true
+          
+
+

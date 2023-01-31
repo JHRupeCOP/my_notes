@@ -1,0 +1,11 @@
+- name: Demo Template
+  hosts: serverb
+  tasks:
+    - name: installing J2 template
+      ansible.builtin.template:
+        src: config.j2
+        dest: /tmp/configfile.txt
+        owner: root
+        group: root
+        mode: 0644
+        backup: yes

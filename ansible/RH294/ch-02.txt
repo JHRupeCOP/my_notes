@@ -1,0 +1,53 @@
+Ansible inventory
+
+basic static inventory - list of host in a INI-syle file, one host/IP per line
+ex: 
+servera.example.com
+serverb.example.com
+192.1.2.42
+-
+
+host group: means of organizing hosts into groups. The group name is encased in sqaure
+brackets [] followed by a list of host names
+ex:
+[webservers]
+servera.example.com
+serverb.example.com
+
+[db-servers]
+serverc.example.com
+serverd.example.com
+-
+
+hosts can belong to multiple groups
+two built-in host groups: 
+all - contains every host explicitly listed
+ungrouped - contains every host that is not a member of any other group
+
+
+Nested groups
+you can have a group of groups by creating a group name with the :children suffix
+ex:
+[usa]
+servera.example.com
+
+[canada]
+serverb.example.com
+
+[north-america:children]
+usa
+canada
+
+The members of the usa and canada groups also belong to north-america group
+
+Specify host ranges  [start:end]
+Can be alpha or numeric 
+ex.
+server[a:d].example.com    --> includes servera, serverb, serverc, and serverd
+
+server[01:20].example.com  --> includes servers01 - 20, but not server1, etc
+
+
+Verify the inventory
+
+

@@ -1,0 +1,42 @@
+---
+- name: DEMO for line in file module
+  hosts: serverb
+  tasks:
+  - name: create a new file with lineinfile
+    ansible.builtin.lineinfile: 
+      dest: /tmp/test.conf 
+      line: ''
+      state: present
+      create: True
+                 
+  - name: add a string to the new file
+    ansible.builtin.lineinfile: 
+      dest: /tmp/test.conf
+      line: 'Hello, World!'
+      state: present
+
+  - name: add a string to the END of file
+    ansible.builtin.lineinfile: 
+      dest: /tmp/test.conf
+      insertafter: EOF
+      line: This is the LAST line
+
+
+  - name: add a string to the BOF of file
+    ansible.builtin.lineinfile: 
+      dest: /tmp/file_deploy_demo.txt
+      insertbefore: BOF
+      line: This is the FIRST line
+
+  - name: replaces a line
+    ansible.builtin.lineinfile:
+      dest: /tmp/file_deploy_demo.txt
+      regex: '^(.*)#ListenAddress 0.0.0.0(.*)$'
+      line: ListenAddress 192.168.0.10
+      backrefs: yes
+
+  - name: Adds a parameter after searching a line
+    ansible.builtin.lineinfile:
+      dest: /tmp/file_deploy_demo.txt
+      insertafter: '#PermitRootLogin yes'
+      line: PermitRootLogin no

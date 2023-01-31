@@ -1,0 +1,12 @@
+git branch
+https://git-scm.com/docs/git-branch
+
+git switch
+https://git-scm.com/docs/git-switch
+Newer command used to just switch between branchex
+
+
+Branch rules
+- no spaces
+
+

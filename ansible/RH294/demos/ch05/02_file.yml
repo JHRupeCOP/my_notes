@@ -1,0 +1,31 @@
+# When using ansible-playbook command with this playbook install the community.general content collection
+---
+- name: DEMO for the file module
+  hosts: serverb
+  tasks:
+    - name: Create a directory
+      ansible.builtin.file:
+        path: /myshare
+        state: directory
+        owner: root
+        group: root
+        mode: 0750
+
+    - name: Create a file (touch)
+      ansible.builtin.file:        
+        path: /myshare/touched_file
+        state: touch
+        owner: root
+        group: root
+        mode: 0640
+
+    - name: Set an SELinux context (like chcon)
+      ansible.builtin.file:        
+        path: /myshare/touched_file
+        setype: samba_share_t
+
+    - name: Update the SELinux rules database (semanage fcontext)
+      community.general.sefcontext:        
+        target: '/myshare(/.*)?'
+        setype: samba_share_t
+

@@ -1,0 +1,30 @@
+---
+- name: Debug for Insights
+  hosts: serverb
+  vars:
+    uname: Ralph
+  tasks:
+    - name: copy file
+      ansible.builtin.copy:
+        src: /tmp/hello.sh
+        dest: /tmp/hello.sh
+      register: sav
+      ignore_errors: yes
+
+    - name: Display a message in the playbook output
+      ansible.builtin.debug:
+        msg: "This will display during playbook run"
+
+    - name: Display a custom message
+      ansible.builtin.debug:
+        msg: "Hello {{ uname }}"
+        verbosity: 2
+
+    - name: Display the value in the variable
+      ansible.builtin.debug:
+        var: sav
+
+    - name: Undefined variables
+      ansible.builtin.debug:
+        var: my_undefined_variable
+

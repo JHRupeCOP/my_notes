@@ -1,0 +1,20 @@
+---
+- name: Conditional based on an item in a list
+  hosts: serverb
+  vars:
+    username: jason
+
+    userlist:
+      - devops
+      - root
+      - student
+      - jason
+
+  tasks:
+    - name: Create a User and assign him to the wheel group
+      ansible.builtin.user:
+        name: "{{username}}"
+        groups: wheel
+        append: yes
+      when: username in userlist  
+

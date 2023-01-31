@@ -1,0 +1,7 @@
+---
+- name: Demonstrating overriding
+  hosts: databases
+  roles:
+    #- role: motd
+    #  username: Kate
+    - { role: motd, username: Christian }

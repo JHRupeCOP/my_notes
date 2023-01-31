@@ -1,0 +1,11 @@
+[webservers]
+# Host variables
+servera.lab.example.com uname=mary lname=tomson
+
+# Group variables
+[webservers:vars]
+uname=sandra
+
+#NOTE: Precedence is given to host variables
+
+

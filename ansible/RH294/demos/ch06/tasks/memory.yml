@@ -1,0 +1,3 @@
+- name: Displays total system memory
+  ansible.builtin.debug:
+    msg: "Total Memory: {{ansible_memory_mb.real.total}} "

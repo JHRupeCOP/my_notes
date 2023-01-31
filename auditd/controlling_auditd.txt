@@ -1,0 +1,24 @@
+To start auditd 
+# service auditd start
+
+To enable auditd at boot
+# systemctl enable auditd
+
+You can temporarily disable auditd 
+# auditctl -e 0 
+Re-enable it with 
+# auditctl -e 1
+To lock the configuration and prevent stopping 
+# auditctl -e 2 
+
+Other commands associated wit service auditd
+stop - Stops auditd.
+restart - Restarts auditd.
+reload or force-reload -  Reloads the configuration of auditd from the /etc/audit/auditd.conf file.
+rotate - Rotates the log files in the /var/log/audit/ directory.
+resume - Resumes logging of Audit events after it has been previously suspended, for example, when there is not enough free space on the disk partition that holds the Audit log files.
+condrestart or try-restart -  Restarts auditd only if it is already running.
+status 0 Displays the running status of auditd.
+
+
+The service command is the only way to correctly interact with the auditd daemon. You need to use the service command so that the auid value is properly recorded. You can use the systemctl command only for two actions: enable and status.

@@ -1,0 +1,3 @@
+- name: Displays HW facts
+  ansible.builtin.debug:
+    msg: "Arch: {{ansible_architecture}} IP Addr: {{ansible_default_ipv4.address}}"

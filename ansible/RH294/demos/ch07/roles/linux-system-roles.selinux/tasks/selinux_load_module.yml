@@ -1,0 +1,52 @@
+---
+- name: Install module
+  when: state == "enabled" and item.path is defined
+  block:
+    - name: Create temporary directory
+      tempfile:
+        state: directory
+        prefix: linux_system_role.selinux
+      register: tempdir
+
+    - name: Copy module file {{ item.path }}
+      copy:
+        dest: "{{ tempdir.path }}"
+        src: "{{ item.path }}"
+        mode: preserve
+
+    - name: Install the module
+      local_semodule:
+        path: "{{ tempdir.path }}/{{ item.path | basename }}"
+        priority: "{{ priority }}"
+        state: enabled
+      notify: __selinux_reload_policy
+  always:
+    - name: Clean temporary directory {{ tempdir.path }}
+      file:
+        path: "{{ tempdir.path }}"
+        state: absent
+
+- name: Remove module
+  local_semodule:
+    name: "{{ item.name }}"
+    state: absent
+    priority: "{{ priority }}"
+  when: state == "absent"
+  notify: __selinux_reload_policy
+
+- name: Enable module
+  local_semodule:
+    name: "{{ item.name }}"
+    state: enabled
+  when: state == "enabled" and item.path is not defined
+  notify: __selinux_reload_policy
+
+- name: Disable module
+  local_semodule:
+    name: "{{ item.name }}"
+    state: "disabled"
+  when: state == "disabled" and item.path is not defined
+  notify: __selinux_reload_policy
+
+- name: Refresh SELinux modules facts
+  selinux_modules_facts:

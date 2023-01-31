@@ -1,0 +1,75 @@
+Show local configured name
+git config user.name
+
+Set local configured user name
+git config --global user.name "Jim Ruppert"
+
+Display local user email
+git config user.email
+
+Set local user email
+git config --glboal user,email "james.ruppert@conocophillips.com"
+
+Initialize Repo
+git init
+
+Clone a remote repo
+git clone <remote repo URL>
+
+Update local repo by branch; checkout and pull
+git checkout master; git pull
+
+Create a new branch, branch created based of current branch(HEAD)
+git checkout -b <branch>
+git switch -c <branch>
+
+Review commits
+git log
+
+Review commits in compressed format
+git log --oneline
+
+Update last commit message
+git commit --amend
+
+Add all changes and commit in a one-liner
+git commit -a -m "<message>"
+
+
+Using .gitignore
+
+
+Add changes to git
+git add . # all changes
+git add -p <file> # add single file 
+
+Commit changes locally
+git commit -m "description"
+
+Send/push local commit to remote branch
+git push origin <branch>
+
+push your feature branch to the remote
+git push origin <mybranch>
+
+# Merge into dev branch
+git checkout dev
+git pull 
+git merge <branch>
+
+A pull request will merge a branch into the master branch
+You should not go from dev to master 
+
+List all local branches 
+git branch --list
+
+List all branches local and remote
+git branch --list --all
+
+Delete local branch that has been merged
+git branch -d <branch>
+
+Delete branch merged or not
+git branch -D <branch> 
+
+

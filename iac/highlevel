@@ -1,0 +1,29 @@
+
+one common vmware template
+- stripped down
+  - no user accounts (root/sservic - same default password)
+  - ad authen still 
+  
+assign hostname
+
+get static IP 
+
+clone and resize 
+- set object name and hostname
+- cookie cutter sizes
+  - small, medium, large
+- set root password
+- assign IP 
+
+subscribe to Satellite
+- correct: AK, location, hostgroup
+
+run Ansible provisioning role against new server
+- update OS
+- adds current admin users/groups
+
+post
+- password vault
+- sudo sync
+- 
+

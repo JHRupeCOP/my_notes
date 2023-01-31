@@ -1,0 +1,17 @@
+---
+- name: Conditional based on boolean
+  hosts: serverb
+  vars:
+    memory: "{{ansible_memory_mb.real.total}}"   #ansible_memtotal_mb
+  tasks:
+    - name: Display
+      ansible.builtin.debug:
+        msg: "{{memory}}"
+
+    - name: "mariadb being installed conditionally."
+      ansible.builtin.yum:
+        name: mariadb-server
+        state: latest
+      when: memory | int >= 400   # reduce this to 400
+
+# NOTE: Other operators can be ==, !=, <, > <= >= etc

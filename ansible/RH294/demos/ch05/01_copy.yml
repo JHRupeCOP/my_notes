@@ -1,0 +1,8 @@
+---
+- name: Simple copy of a sample text file that will be used for examples
+  hosts: serverb
+  tasks:
+    - name: Copies a sample file to the host
+      ansible.builtin.copy:
+        src: file_deploy_demo.txt
+        dest: /tmp/file_deploy_demo.txt

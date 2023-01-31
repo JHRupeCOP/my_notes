@@ -1,0 +1,13 @@
+- name: DEMO for blockinfile
+  hosts: serverb
+  tasks:
+    - name: insert/update custom markers
+      ansible.builtin.blockinfile:
+        path: /tmp/file_deploy_demo.txt
+        marker: "##--- {mark} ANSIBLE MANAGED BLOCK ---##"
+        insertafter: "The PS command"
+        content: |
+            
+            Welcome to Ansible Automatiom Platform
+            Hope you are Enjoying !!!
+              

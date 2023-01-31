@@ -1,0 +1,33 @@
+---
+- name: Simple loop with lists
+  hosts: servera.lab.example.com
+  become: yes
+  tasks:
+    - name: Simple list loop (new)
+      ansible.builtin.user: 
+        name: "{{item}}"
+        state: present
+      loop:
+        - joe
+        - mark
+        - jill
+
+
+    - name: Simple list loop (old)
+      ansible.builtin.debug: 
+        msg: "{{item}}"
+      with_list:
+        - joe
+        - mark
+        - jill
+
+
+    - name: Simple list as list variable
+      ansible.builtin.debug:          
+        msg: "{{item}}"
+      loop: "{{user_names}}"
+      vars:
+        user_names:       
+        - John          
+        - Sanjay        
+        - Chuck         

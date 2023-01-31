@@ -1,0 +1,10 @@
+Network Manager Cheatsheet
+
+nmcli device status  # shows active connections
+
+nmcli device show ens192 # display information about the device
+
+nmcli con modify "Wired connection 1" connection.id ens192 # Changes the connection (from nmcli devices status
+
+nmcli con mod ens192 ipv4.method auto # Change to DHCP IP
+

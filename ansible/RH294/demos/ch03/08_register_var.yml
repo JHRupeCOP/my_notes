@@ -1,0 +1,16 @@
+---
+- name: Play to make use of group and host variables
+  hosts: servera.lab.example.com
+  vars:
+    package: httpd
+  tasks:
+    - name: Installs the package httpd
+      ansible.builtin.dnf:
+        name: httpd
+        state: present
+      register: show_result
+
+    - name: Show results
+      debug: 
+        var: show_result['failed']
+

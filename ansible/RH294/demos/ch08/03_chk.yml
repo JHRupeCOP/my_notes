@@ -1,0 +1,11 @@
+- name: Test for check condition
+  hosts: serverb.lab.example.com
+  tasks:
+    - name: create a file
+      ansible.builtin.copy:
+        content: Hello 
+        dest: /tmp/test.txt
+
+    - name: display a file
+      ansible.builtin.command: id
+      check_mode: no

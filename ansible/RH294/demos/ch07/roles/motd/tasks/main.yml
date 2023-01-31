@@ -1,0 +1,9 @@
+---
+# Tasks for motd role
+- name: Render and install the motd file
+  ansible.builtin.template:
+    src: motd.j2      # NOTE: path has not been given
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0444

@@ -1,0 +1,6 @@
+- name: Linux kernel version
+  ansible.builtin.debug:
+    msg: "Kernel: {{ansible_kernel}} "
+  changed_when: true
+  notify:
+    - test

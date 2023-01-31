@@ -1,0 +1,12 @@
+---
+- name: Installs the MariaDB package
+  ansible.builtin.dnf:
+    name: mariadb-server
+    state: latest
+
+- name: Set service startup for MariaDB
+  ansible.builtin.service:
+    name: mariadb
+    state: started
+    enabled: true
+  

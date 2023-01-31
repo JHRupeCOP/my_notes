@@ -1,0 +1,6 @@
+Magic Variables
+---------------
+Some variable are not facts or configured through setup but are automatically set by ansible. These magic variables can be used to get information specific to a particular managed host.
+
+$ ansible servera.lab.example.com -m debug -a 'var=hostvars'
+$ ansible servera.lab.example.com -m debug -a 'var=group_names'

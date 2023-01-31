@@ -1,0 +1,13 @@
+---
+- name: Conditional based on boolean
+  hosts: serverb
+  vars:
+    package: mariadb-server
+  tasks:
+    - name: "{{package}} being installed conditionally."
+      ansible.builtin.dnf:
+        name: "{{package}}"
+        state: present
+      when: package1 is defined
+
+# NOTE: Replace package1 with package in the conditional 

@@ -1,0 +1,48 @@
+#Port 22
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+
+HostKey /etc/ssh/ssh_host_rsa_key
+#HostKey /etc/ssh/ssh_host_dsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Ciphers and keying
+#RekeyLimit default none
+
+# Logging
+#SyslogFacility AUTH
+SyslogFacility AUTHPRIV
+#LogLevel INFO
+
+# Authentication:
+
+#LoginGraceTime 2m
+#PermitRootLogin yes
+
+
+
+
+The PS command
+
+ps displays information about a selection of the active processes.  If
+you want a repetitive update of the selection and the displayed
+information, use top(1) instead.
+
+This version of ps accepts several kinds of options:
+
+1   UNIX options, which may be grouped and must be preceded by a dash.
+2   BSD options, which may be grouped and must not be used with a dash.
+3   GNU long options, which are preceded by two dashes.
+
+Options of different types may be freely mixed, but conflicts can
+appear.  There are some synonymous options, which are functionally
+identical, due to the many standards and ps implementations that this
+ps is compatible with.
+
+Note that "ps -aux" is distinct from "ps aux".  The POSIX and UNIX
+standards require that "ps -aux" print all processes owned by a user
+named "x", as well as printing all processes that would be selected by
+the -a option.  If the user named "x" does not exist, this ps may
+interpret the command as "ps aux" instead and print a warning.

@@ -1,0 +1,19 @@
+https://bluejeans.com/331496051/3782/webrtc
+
+Container for EE
+https://catalog.redhat.com/software/containers/ansible-automation-platform-22/ee-supported-rhel8/6273a6fa7d19ffee88be59fa?container-tabs=gti&gti-tabs=red-hat-login
+
+Become directives
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_privilege_escalation.html#become-directives
+
+Ansible Variable Precedence
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#ansible-variable-precedence
+
+Ansible Special Variables
+https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html
+
+Collection Index
+https://docs.ansible.com/ansible/latest/collections/index.html
+
+Linux System Roles
+https://linux-system-roles.github.io/

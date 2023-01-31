@@ -1,0 +1,12 @@
+# Administrators can parameterize playbooks to make tasks reuseable
+
+- name: Installation of packages
+  hosts: serverb
+  vars:
+    pkg:
+      pname: mariadb-server
+      service: mariadb
+      s_state: started
+  tasks:
+    - name: Include the package installer
+      ansible.builtin.include_tasks: tasks/install.yml

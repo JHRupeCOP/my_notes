@@ -1,0 +1,7 @@
+- name: Play to setup Web Server
+  hosts: servera
+  tasks:
+    - name: Setting up NginX configuration
+      ansible.builtin.debug:
+        msg: "WEB setup playbook imported"
+

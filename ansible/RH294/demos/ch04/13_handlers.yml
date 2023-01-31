@@ -1,0 +1,25 @@
+---
+- name: Implementing Handlers
+  hosts: servera
+  tasks:
+    - name: install Apache
+      ansible.builtin.yum:
+        name: httpd
+        state: installed
+
+    - name: Copy configuration file
+      ansible.builtin.copy:
+        src: httpd.conf
+        dest: /etc/httpd/conf/httpd.conf
+      notify:
+        - start_apache
+
+  handlers:
+    - name: start_apache
+      ansible.builtin.service:
+        name: httpd
+        state: started
+
+    - name: start_apache
+      ansible.builtin.debug:
+        msg: "This one will not run"

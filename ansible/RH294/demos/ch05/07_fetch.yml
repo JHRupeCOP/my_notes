@@ -1,0 +1,8 @@
+- name: DEMO for fetch module
+  hosts: serverb
+  tasks:
+    - name: fetch the file_deploy_demo.txt
+      ansible.builtin.fetch:
+        src: /tmp/file_deploy_demo.txt
+        dest: updated-config
+        flat: no                               # Default

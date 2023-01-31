@@ -1,0 +1,10 @@
+# This is a requirements file to download roles from Ansible Galaxy website
+# Use the following command to make use of this requirements file
+
+# ansible-galaxy role install -r 04_requirements.yml -p roles/
+
+- src: geerlingguy.redis
+  name: sanjay.redis
+
+- src: achaussier.mysql-server
+

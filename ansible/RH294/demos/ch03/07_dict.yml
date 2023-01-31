@@ -1,0 +1,19 @@
+---
+- name: Demo of arrays
+  hosts: servera.lab.example.com
+  vars:
+    # Class was deliberately mispelt as class is a keyword
+    clas:
+      uname: betsy
+      age: 34
+      addr: 8107 Tamarron Dr.
+  tasks:
+    - name: Display Array content method 1
+      ansible.builtin.debug:
+        msg: "{{clas.uname}} {{clas.age}} {{clas.addr}}"
+
+ 
+    - name: Display Array content method 2
+      ansible.builtin.debug:
+        msg: "{{clas['uname']}} {{clas['age']}} {{clas['addr']}}"
+        

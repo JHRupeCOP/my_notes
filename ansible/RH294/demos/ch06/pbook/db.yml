@@ -1,0 +1,7 @@
+- name: Play to setup Database Server
+  hosts: serverb
+  tasks:
+    - name: Setting up Oracle configuration
+      ansible.builtin.debug:
+        msg: "Oracle setup playbook imported"
+

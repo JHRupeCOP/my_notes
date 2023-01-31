@@ -1,0 +1,20 @@
+# Restrictions for using import_tasks
+# NOTE: This Playbook is in an ERROR state
+
+- name: Testing restrictions on import_tasks
+  hosts: servera
+  vars:
+    my_file: combine
+    #file_name: facts                            # Will ERROR out. Uncomment this line to fix host_vars ERROR
+    files:
+      - memory
+      - kernel
+  tasks:
+    - name: Import Tasks
+      ansible.builtin.import_tasks: "tasks/{{file_name}}.yml"   # vars, extra vars and vars_files OK, host and group vars facts are not OK
+      when: ansible_distribution == "RedHat"    # conditionals are allowed
+
+    - name: Displays HW stats
+      ansible.builtin.import_tasks: "tasks/{{item}}.yml"        # replace with my_file for later DEMO --list-tasks
+      loop: "{{files}}"                         # loops are not allowed
+                                                # comment the loop later to DEMO --list-tasks

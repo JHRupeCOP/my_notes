@@ -1,0 +1,20 @@
+---
+# Do not attempt to run this as its NOT a playbook
+# Add this to the motd role that you are creating in the meta folder
+# Do rename this to main.yml
+
+galaxy_info:
+  author: Sanjay Singh
+  description: Helps setup the message of the day
+  company: Acme Inc.
+  license: MIT  Free to use for training needs
+  min_ansible_version: 2.3
+  platforms:
+    - name: EL
+      version:
+        - all
+  galaxy_tags:
+    - techiesanjay
+    - message of the day
+    - motd
+

@@ -1,0 +1,17 @@
+- name: save file if does not exist
+  hosts: serverb
+  tasks:
+    - name: check for file
+      ansible.builtin.stat:
+        path: /tmp/abcd.txt
+      register: results
+
+    - name: Print JSON
+      ansible.builtin.debug:
+        var: results
+
+    - name: copy based on results
+      ansible.builtin.copy:
+        src: /tmp/hello.sh
+        dest: /var/tmp/h1.sh
+      when: results.stat.exists == false

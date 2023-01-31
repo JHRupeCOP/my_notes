@@ -1,0 +1,19 @@
+---
+- name: Block demo
+  hosts: databases
+  tasks:
+    - block:
+      - name: Install software
+        ansible.builtin.yum:
+          name: "{{item}}"
+          state: installed
+        loop:
+          - postfix
+          - dovecot
+      - name: Start service
+        ansible.builtin.service:
+          name: postfix
+          state: started
+          enabled: true
+      when: ansible_distribution == "Debian"
+

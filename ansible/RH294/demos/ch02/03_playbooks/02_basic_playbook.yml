@@ -1,0 +1,10 @@
+---
+- name: Setup Apache webserver
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Installing web server
+      dnf:
+        name: httpd
+        state: present
+...
+

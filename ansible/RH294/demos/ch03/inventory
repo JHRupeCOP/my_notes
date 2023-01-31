@@ -1,0 +1,16 @@
+[webservers]
+servera.lab.example.com
+
+[servera]
+servera.lab.example.com
+
+[serverb]
+serverb.lab.example.com
+
+[lamp:children]
+servera
+serverb
+
+
+[test:children]
+webservers

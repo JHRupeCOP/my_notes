@@ -1,0 +1,37 @@
+- name: Install the fact in the managed machine
+  hosts: lamp
+  tasks:
+    - name: Create a directory on the managed host to install the fact
+      ansible.builtin.file:
+        state: directory
+        recurse: yes
+        path: /etc/ansible/facts.d
+
+    - name: Create a shell script
+      ansible.builtin.copy:
+        content: |
+           #!/bin/bash
+           OCTET=`hostname -i | cut -f 4 -d "."`
+           cat << EOF
+           {
+             "vpn_facts": {
+                 "vpnip" : "20.0.0.$OCTET"
+             }
+           }
+           EOF
+        dest: /etc/ansible/facts.d/custom.sh
+        owner: root
+        group: root
+        mode: 0544
+
+    - name: Execute the shell script
+      ansible.builtin.shell: /etc/ansible/facts.d/custom.sh > /etc/ansible/facts.d/custom.fact
+
+
+- name: Retrieve the custom fact
+  hosts: lamp
+  tasks:
+    - name: Making use of custom facts
+      ansible.builtin.debug:
+        msg: "The VPN IP is: {{ansible_local.custom.vpn_facts.vpnip}}"
+        msg: "The VPN IP is: {{ansible_facts.ansible_local.custom.vpn_facts.vpnip}}"

@@ -1,0 +1,10 @@
+# Variables are defined externally but used in a playbook
+- name: Play to create a user on servera
+  hosts: servera.lab.example.com
+  vars_files:
+    - vars/variables.yml
+  tasks:
+    - name: Creating user
+      ansible.builtin.user:
+        name: "{{uname}}"
+        comment: "{{ fname }}"

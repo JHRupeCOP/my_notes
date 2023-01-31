@@ -1,0 +1,13 @@
+---
+- name: Checking for stat and assert
+  hosts: servera.lab.example.com
+  vars:
+    my_param: 20
+  tasks:
+    - name: Check for critical conditions
+      ansible.builtin.assert:
+        that:
+          - "my_param <= 100"
+          - "my_param >= 0"
+        msg: "'my_param' must be between 0 and 100"
+        #quiet: true   # >=2.8

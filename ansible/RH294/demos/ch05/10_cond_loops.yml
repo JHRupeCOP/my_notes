@@ -1,0 +1,16 @@
+- name: Demonstrate the use of conditionals and loops in jinja2 templates
+  hosts: serverb
+  vars:
+    myusers:
+      - jerry
+      - jack
+      - john
+      - james
+    prodserver: yes
+    mysql_max_connections: 40
+
+  tasks:
+    - name: render Jinja2 template
+      template:
+        src: appconfig.j2
+        dest: /tmp/appconfig.txt

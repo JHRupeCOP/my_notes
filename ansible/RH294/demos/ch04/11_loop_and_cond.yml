@@ -1,0 +1,14 @@
+---
+- name: Combining loops and conditionals
+  hosts: servera
+  tasks:
+    - name: Install mariadb if adequate diskspace 300M is available
+      ansible.builtin.yum:
+        name: mariadb-server
+        state: latest
+      loop: "{{ansible_mounts}}"  # list of mounted partition details
+      when: item.mount == "/" and item.size_available > 300000000
+
+
+
+

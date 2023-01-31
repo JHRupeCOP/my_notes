@@ -1,0 +1,10 @@
+# IMPORTANT: The only reason we are able to target dummy hosts is because debug doesnt initiate a SSH session
+---
+- name: Hosts matching
+  hosts: s*
+  gather_facts: no		# Do not forget this
+  tasks:
+    - name: Copy a file
+      ansible.builtin.debug:
+        var: inventory_hostname
+    

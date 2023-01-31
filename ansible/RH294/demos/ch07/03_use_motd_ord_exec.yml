@@ -1,0 +1,21 @@
+- name: Controlling playbook execution order
+  hosts: servera.lab.example.com
+ 
+  post_tasks:
+    - ansible.builtin.debug:
+        msg: "Bye - In Post Tasks"
+  
+  roles:
+    - motd
+  
+  tasks:
+    - ansible.builtin.debug:
+        msg: "Doing more tasks - Regular Tasks section"
+
+  pre_tasks:
+    - ansible.builtin.debug:
+        msg: "Welcome - In Pre Tasks"
+
+    - name: calling a role
+      ansible.builtin.include_role:
+        name: motd

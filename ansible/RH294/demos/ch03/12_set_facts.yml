@@ -1,0 +1,38 @@
+---
+- name: Testing the set_fact module
+  hosts: servera.lab.example.com
+  vars:
+    username1: Andrew
+  tasks:
+    - name: Setting up some variables using set_fact 
+      ansible.builtin.set_fact:
+        username2: Sanjay
+        username3: Chris
+
+    - name: Display the value in variables
+      ansible.builtin.debug:
+        msg: "Vars username1: {{username1}} set_fact username2: {{username2}}"
+
+- name: Testing the set_fact module for variable persistance across plays for servera
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Variables in vars section in the previous play go out of scope
+      ansible.builtin.debug:
+        var: username1 
+
+    - name: However facts set for servera using set_fact module is still available
+      ansible.builtin.debug:
+        var: username2
+
+- name: Testing visibility of set_fact on a different host (serverb)
+  hosts: serverb.lab.example.com
+  tasks:
+    - name: username1 defined in the first play is out of scope
+      ansible.builtin.debug:
+        var: username1
+
+    - name: Since the play points to serverb the set_fact variables are out of scope
+      ansible.builtin.debug:
+        var: username2
+
+

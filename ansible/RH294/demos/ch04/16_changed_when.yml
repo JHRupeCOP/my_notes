@@ -1,0 +1,19 @@
+---
+- name: Demonstrating changed_when directive
+  hosts: servera
+  tasks:
+    - name: Using a non-idempotent module
+      ansible.builtin.shell: echo "Hello World\n" > /tmp/hello.txt
+      register: reg
+      changed_when: false
+      notify:
+        - display_data
+
+    - ansible.builtin.debug:
+        msg: This is the end of the playbook
+
+  handlers:
+    - name: display_data
+      ansible.builtin.debug:
+        msg: "Handler runs with every instance of playbook run"
+

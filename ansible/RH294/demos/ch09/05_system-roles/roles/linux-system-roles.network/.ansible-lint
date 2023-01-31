@@ -1,0 +1,10 @@
+---
+exclude_paths:
+  - tests/
+  - .github/
+  - .ansible-lint
+skip_list:
+  - role-name
+  - fqcn
+warn_list:
+  - load-failure  # allow include_tasks with tasks/ directory

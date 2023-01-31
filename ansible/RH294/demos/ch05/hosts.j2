@@ -1,0 +1,7 @@
+{# Sample /etc/hosts file #}
+127.0.0.1    localhost.localdomain localhost
+{% for host in groups.all %}
+{% if host not in inventory_hostname %}
+{{myvar[host].ansible_default_ipv4.address}} {{host}} {{myvar[host].ansible_hostname}}
+{% endif %}
+{% endfor %}

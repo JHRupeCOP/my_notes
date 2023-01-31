@@ -1,0 +1,8 @@
+- name: DEMO for replace module
+  hosts: serverb
+  tasks:
+    - name: replace ps in the target file
+      ansible.builtin.replace:
+        path: /tmp/file_deploy_demo.txt
+        regexp: 'ps'
+        replace: 'ABCD'

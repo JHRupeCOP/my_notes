@@ -1,0 +1,11 @@
+---
+- name: Running playbooks locally (on controller)
+  hosts: localhost
+  #connection: local
+  #remote_user: student
+  #become: yes
+  tasks:
+    - name: Install Dovecot
+      ansible.builtin.dnf:
+        name: dovecot
+        state: present

@@ -1,0 +1,28 @@
+---
+- name: Simple loop with list of hashes
+  hosts: localhost
+  become: no
+  vars:
+    my_hash1:
+        - name: postfix
+          number: 10
+        - name: dovecot
+          number: 20
+        - {name: httpd, number: 30}
+
+    my_hash2:
+      - [postfix, 10]
+      - [dovecot, 20]
+      - [httpd, 30]
+
+  tasks:
+    - name: looping over hashes
+      ansible.builtin.debug: 
+        msg: The current service is {{item.name}} and number is {{item.number}}
+      loop: "{{ my_hash1 }}"
+
+
+    - name: looping over hashes
+      ansible.builtin.debug: 
+        msg: The current service is {{item.0}} and number is {{item.1}}
+      loop: "{{ my_hash2 }}"

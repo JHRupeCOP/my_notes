@@ -1,0 +1,9 @@
+---
+- name: Play where facts are not gathered
+  hosts: servera.lab.example.com
+  #gather_facts: no
+  tasks:
+    - name: No gathering of facts
+      ansible.builtin.debug: 
+        msg: "Facts were not gathered"
+

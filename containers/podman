@@ -1,0 +1,20 @@
+# Display local images
+podman images
+
+# Deploy container interactively
+podman run -it <image name> /bin/bash
+
+# Display running images
+podman ps
+
+# Remove all "exited" pods
+podman rm $(podman ps -a | grep Exited | cut -d" " -f1)
+
+# Stopping a deatached pod
+podman stop <container id>
+
+# Add container to local repository
+
+podman tag <image name> <local host:port>/<image name>
+example: 
+  podman tag localhost/ruppej-ee bvluapd0292:5000/ruppej_ee

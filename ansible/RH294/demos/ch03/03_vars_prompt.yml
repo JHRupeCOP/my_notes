@@ -1,0 +1,20 @@
+- name: Collect values 
+  hosts: localhost
+  become: no
+  vars_prompt:
+   - name: "uname"
+     prompt: "what is your name?"
+     private: no      # Default private is yes
+
+   - name: "favcolor"
+     prompt: "what is your favorite color?"
+     default: yellow
+     private: no
+
+   - name: "pwd"
+     prompt: "what is your password?"
+
+  tasks:
+    - name: Display the values
+      ansible.builtin.debug:
+        msg: "Values collected are: Name-->{{uname}} Color-->{{favcolor}}. Password is {{pwd}}"

@@ -1,0 +1,17 @@
+= Screen Command
+
+screen is a terminal multiplexer
+
+=== Installation
+[,ruby]
+---
+yum install screen
+---
+
+== Usage examples
+
+=== Start a screen session with the session name "os_upgrade"
+[,ruby]
+---
+screen -S os_upgrade
+---

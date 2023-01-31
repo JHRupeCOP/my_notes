@@ -1,0 +1,9 @@
+# Administrators can divide a larger playbook into smaller tasks for ease of management and reduce playbook clutter
+
+- name: Installation of packages
+  hosts: servera
+
+  tasks:
+    - name: Include the package installer
+      ansible.builtin.import_tasks: tasks/setup.yml
+

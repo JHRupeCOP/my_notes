@@ -1,0 +1,13 @@
+# Represents all machines in the 192.168.1.1/24 network thru 192.168.4.254
+192.168.[1:4].[1:254]
+
+# Represents hosts web1, web2 ... web5.w-virginia.com 
+[webservers]
+web[1:5].w-virginia.com
+
+# Represents hosts db01 thru db03
+[dbserver] 
+db[01:03].example.net
+
+[test]
+db[a:d].test.com

@@ -1,0 +1,13 @@
+---
+- name: Play to make use of group and host variables
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Display full user name
+      ansible.builtin.debug:
+        msg: Full name --> {{uname}} {{ lname }}
+
+    - name: Install Apache
+      ansible.builtin.yum:
+        name: "{{package}}"
+        state: latest
+

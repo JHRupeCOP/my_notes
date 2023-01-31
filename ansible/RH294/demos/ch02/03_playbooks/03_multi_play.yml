@@ -1,0 +1,55 @@
+# Demonstrates installation of multiple packages using one yum module
+---
+- name: Configure Apache and Mariadb
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Installing database and web server
+      dnf:
+        name: 
+          - httpd
+          - mariadb-server
+        state: present
+
+    - name: Start and enable web server
+      service:
+        name: httpd
+        state: started
+        enabled: true
+
+
+    - name: Start and enable the database
+      service:
+        name: mariadb
+        state: started
+        enabled: true
+
+- name: Configure Firewall
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Installing Firewall
+      dnf:
+        name: firewalld
+        state: present
+
+    - name: Start and enable firewall
+      service:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: Open ports Apache
+      firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        immediate: yes
+
+
+    - name: Open ports for MariaDB
+      firewalld:
+        service: mysql
+        permanent: true
+        state: enabled
+        immediate: yes
+...
+

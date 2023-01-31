@@ -1,0 +1,17 @@
+---
+- name: Creates a network connection profile
+  hosts: serverb
+  vars:
+    network_connections:
+      - name: test-static
+        state: present
+        type: ethernet
+        interface_name: eth0
+        autoconnect: no
+        ip:
+          address: 10.0.0.1/8
+          dhcp4: no
+          auto6: no
+ 
+  roles:
+    - role: linux-system-roles.network

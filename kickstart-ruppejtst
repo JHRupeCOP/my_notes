@@ -1,0 +1,22 @@
+Reboot on RHEL 8.4 or lower DVD iso
+Press tab when the install menu appears, cursor should be on the the Install Red Hat... line
+
+The kernel boot string will appear on the bottom of the screen.
+
+Cursor right to you get in the space between initrd.img and inst.stage2=hd and insert the line below in the space
+inst.ks=http://158.139.136.119/pub/KS/ruppejtst-ks.cfg
+
+remove rd.live.check from the line
+
+Press enter to start the install
+
+In Ansible launch the template 
+
+operation: run
+reboot: true
+hmi_device_name: ruppejtst.conocophillips.net
+
+
+Register to mariner
+rpm -Uvh http://mariner.conocophillips.net/pub/katello-ca-consumer-latest.noarch.rpm
+subscription-manager register --org="COP" --activationkey="HMI_Kiosk_AK"

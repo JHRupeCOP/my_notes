@@ -1,0 +1,21 @@
+- name: Demonstration of failed_when directive
+  hosts: databases
+  tasks:
+    - name: Create a shell script
+      ansible.builtin.copy:
+        content: |
+          #!/bin/bash
+          echo Failed
+        dest: /tmp/hello.sh
+        mode: 0755
+
+    - name: Run a shell command
+      ansible.builtin.shell: /tmp/hello.sh
+      register: result
+      failed_when: "'Failed' in result.stdout"
+
+    - name: display result
+      ansible.builtin.debug:
+        var: result
+
+

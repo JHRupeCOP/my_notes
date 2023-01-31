@@ -1,0 +1,5 @@
+---
+- name: Calling the motd role
+  hosts: databases
+  roles:
+    - motd

@@ -1,0 +1,32 @@
+{{ansible_managed | comment}}
+{# This is a comment that will NOT be rendered. #}
+
+{% for u in myusers %}
+	- username: {{ u }}
+{% endfor %}
+
+
+{% for myhost in groups['all'] %}
+	{{myhost }}
+{% endfor %}
+
+
+{% if prodserver %}
+THIS IS A PRODSERVER!!
+{%else%}
+THIS IS NOT A PRODSERVER!!
+{% endif %}
+
+
+# Setting max connections
+
+{% if mysql_max_connections | int > 3000 %}
+max_connections = 3000
+thread_cache_size = {{ (3000 * 0.15) | int }}
+{% elif mysql_max_connections | int < 150 %}
+max_connections = 150
+thread_cache_size = {{ (150 * 0.15) | int }}
+{% else %}
+max_connections = {{ mysql_max_connections }}
+thread_cache_size = {{ (mysql_max_connections | int * 0.15) | int }}
+{% endif %}

@@ -1,0 +1,11 @@
+---
+- name: Play to make use of group and host variables
+  hosts: lamp
+  vars:
+    package: httpd
+  tasks:
+    - name: Installs the package {{package}}
+      ansible.builtin.dnf:
+        name: "{{package}}"
+        state: present
+

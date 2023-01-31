@@ -1,0 +1,22 @@
+---                            
+- name: Sets an SELinux context
+  hosts: serverb               
+  vars:                        
+    selinux_fcontexts:         
+      - { target: '/mywebsite(/.*)?', setype: 'httpd_sys_content_t', ftype: 'f', state: 'present' }
+    selinux_restore_dirs:      
+      - /mywebsite             
+  roles:                       
+    - role: linux-system-roles.selinux
+                               
+  pre_tasks:                   
+    - name: Create a folder    
+      ansible.builtin.file:                    
+        path: /mywebsite       
+        state: directory       
+                               
+    - name: Create an index page
+      ansible.builtin.copy:                    
+        content: Testing the SELinux Linux system Role
+        dest: /mywebsite/index.html
+

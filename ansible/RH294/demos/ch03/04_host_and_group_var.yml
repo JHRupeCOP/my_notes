@@ -1,0 +1,12 @@
+# Run with the following options:
+# ansible-playbook -i hg_vars 03_host_var.yml
+---
+- name: Play to create a user on servera
+  # Change this to serverb.lab.example.com to show an ERROR
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Creating user
+      ansible.builtin.user:
+        name: "{{uname}}"
+        comment: "{{uname}} {{ lname }}"
+

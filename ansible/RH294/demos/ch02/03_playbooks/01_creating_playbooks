@@ -1,0 +1,65 @@
+
+Skeletal Structure
+
+---
+- name: This is play 1
+  hosts: dbservers
+  tasks:
+    - name: This is task 1
+      <module>:
+          key1: value1
+          key2: value2
+  
+    - name: This is task 2
+      <module>:
+       key1: value1
+       key2: value2
+
+...
+
+
+
+
+
+
+
+Lists:
+-----
+
+Map notation: (Best Prractice)
+
+fruits:
+  - apples
+  - oranges
+  - pineapples
+
+Freeform Notation
+
+fruits: ['apples','oranges','pineapples']
+
+
+
+Dictionary  Hash/Associative Array/Key-Value pair
+----------
+
+student:
+  name: jane
+  state: NJ
+  zip: 08536
+
+student: {name: jane, state: NJ, zip: 08536}
+
+
+List of Dictionaries
+--------------------
+
+
+student:
+  - jane:
+      state: NJ
+      zip: 08536
+  - jake:
+      state: CA
+      zip: 23456
+
+

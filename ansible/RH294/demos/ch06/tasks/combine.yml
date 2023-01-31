@@ -1,0 +1,7 @@
+- name: Displays total system memory
+  ansible.builtin.debug:
+    msg: "Total Memory: {{ansible_memory_mb.real.total}} "
+
+- name: Linux kernel version
+  ansible.builtin.debug:
+    msg: "Kernel: {{ansible_kernel}} "

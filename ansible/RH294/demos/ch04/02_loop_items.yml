@@ -1,0 +1,27 @@
+---
+- name: Looping through items
+  hosts: localhost
+  become: no
+  vars:
+    numbers:
+      - 1
+      - [2,3]
+      - 4
+      - 5
+  tasks:
+    - name: Displays list using loop
+      ansible.builtin.debug: 
+        msg: "{{item}}"
+      loop: "{{numbers}}"
+
+
+    - name: Displays list using with_items
+      ansible.builtin.debug: 
+        msg: "{{item}}"
+      with_items: "{{numbers}}"
+
+
+    - name: Displays list using loop with flatten filter
+      ansible.builtin.debug: 
+        msg: "{{item}}"
+      loop: "{{numbers|flatten(levels=1)}}"

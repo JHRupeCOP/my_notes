@@ -1,0 +1,26 @@
+- name: check URL download
+  hosts: databases
+  tasks:
+    - name: Create a folder
+      ansible.builtin.file:
+        state: directory
+        path: /var/www/html
+        mode: 0755
+
+    - block:
+      - name: Check for file on the URL
+        ansible.builtin.get_url:
+          url: http://materials.example.com/site.html
+          dest: /var/www/html/index.html
+          force: yes
+      rescue:
+        - name: Error in accessing URL
+          ansible.builtin.copy:
+            content: "URL was not accessable"
+            dest: /var/www/html/index.html
+      always:
+        - name: Into always
+          ansible.builtin.debug:
+            msg: You may now check if the site is functional
+            
+

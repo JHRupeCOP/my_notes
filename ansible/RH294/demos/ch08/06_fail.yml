@@ -1,0 +1,17 @@
+---
+- name: Checking for stat and assert
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Check for presense of a file
+      ansible.builtin.stat:
+        path: /tmp/abc
+      register: val
+
+    - name: Display the value
+      ansible.builtin.debug:
+        var: val
+
+    - name: Test fail module
+      ansible.builtin.fail:
+        msg: File ABC not found
+      when: not val.stat.exists

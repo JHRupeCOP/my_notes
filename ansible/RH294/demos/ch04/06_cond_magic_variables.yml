@@ -1,0 +1,10 @@
+---
+- name: Conditional based on magic variables
+  hosts: all
+  tasks:
+    - name: Apache being installed conditionally based on magic variables.
+      ansible.builtin.yum:
+        name: httpd
+        state: latest
+      when: inventory_hostname in groups['lamp']
+      #when: inventory_hostname in groups.lamp

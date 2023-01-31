@@ -1,0 +1,249 @@
+2023-01-27 12:15:59,621 p=5115 u=student n=ansible | PLAY [Playbook command line options] ***********************************************************************************************************
+2023-01-27 12:15:59,630 p=5115 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 12:16:01,066 p=5115 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 12:16:01,078 p=5115 u=student n=ansible | TASK [task 1] **********************************************************************************************************************************
+2023-01-27 12:16:01,177 p=5115 u=student n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2023-01-27 12:16:01,177 p=5115 u=student n=ansible | fatal: [serverb.lab.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-01-27 12:16:01,178 p=5115 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 12:16:01,178 p=5115 u=student n=ansible | serverb.lab.example.com    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-01-27 12:23:43,182 p=5182 u=student n=ansible | PLAY [Debug for Insights] **********************************************************************************************************************
+2023-01-27 12:23:43,190 p=5182 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 12:23:44,603 p=5182 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 12:23:44,624 p=5182 u=student n=ansible | TASK [copy file] *******************************************************************************************************************************
+2023-01-27 12:23:44,724 p=5182 u=student n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2023-01-27 12:23:44,725 p=5182 u=student n=ansible | fatal: [serverb.lab.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-01-27 12:23:44,725 p=5182 u=student n=ansible | ...ignoring
+2023-01-27 12:23:44,731 p=5182 u=student n=ansible | TASK [Display a message in the playbook output] ************************************************************************************************
+2023-01-27 12:23:44,746 p=5182 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "msg": "This will display during playbook run"
+}
+2023-01-27 12:23:44,753 p=5182 u=student n=ansible | TASK [Display a custom message] ****************************************************************************************************************
+2023-01-27 12:23:44,771 p=5182 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "msg": "Hello Ralph"
+}
+2023-01-27 12:23:44,778 p=5182 u=student n=ansible | TASK [Display the value in the variable] *******************************************************************************************************
+2023-01-27 12:23:44,796 p=5182 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "sav": {
+        "changed": false,
+        "exception": "Traceback (most recent call last):\n  File \"/usr/lib/python3.9/site-packages/ansible/plugins/action/copy.py\", line 466, in run\n    source = self._find_needle('files', source)\n  File \"/usr/lib/python3.9/site-packages/ansible/plugins/action/__init__.py\", line 1417, in _find_needle\n    return self._loader.path_dwim_relative_stack(path_stack, dirname, needle)\n  File \"/usr/lib/python3.9/site-packages/ansible/parsing/dataloader.py\", line 341, in path_dwim_relative_stack\n    raise AnsibleFileNotFound(file_name=source, paths=[to_native(p) for p in search])\nansible.errors.AnsibleFileNotFound: Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\n",
+        "failed": true,
+        "msg": "Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"
+    }
+}
+2023-01-27 12:23:44,802 p=5182 u=student n=ansible | TASK [Undefined variables] *********************************************************************************************************************
+2023-01-27 12:23:44,817 p=5182 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "my_undefined_variable": "VARIABLE IS NOT DEFINED!"
+}
+2023-01-27 12:23:44,836 p=5182 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 12:23:44,836 p=5182 u=student n=ansible | serverb.lab.example.com    : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2023-01-27 12:25:05,202 p=5226 u=student n=ansible | PLAY [Debug for Insights] **********************************************************************************************************************
+2023-01-27 12:25:05,210 p=5226 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 12:25:06,596 p=5226 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 12:25:06,608 p=5226 u=student n=ansible | TASK [copy file] *******************************************************************************************************************************
+2023-01-27 12:25:06,698 p=5226 u=student n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2023-01-27 12:25:06,699 p=5226 u=student n=ansible | fatal: [serverb.lab.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-01-27 12:25:06,699 p=5226 u=student n=ansible | ...ignoring
+2023-01-27 12:25:06,705 p=5226 u=student n=ansible | TASK [Display a message in the playbook output] ************************************************************************************************
+2023-01-27 12:25:06,716 p=5226 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "msg": "This will display during playbook run"
+}
+2023-01-27 12:25:06,722 p=5226 u=student n=ansible | TASK [Display a custom message] ****************************************************************************************************************
+2023-01-27 12:25:06,738 p=5226 u=student n=ansible | fatal: [serverb.lab.example.com]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'uname1' is undefined\n\nThe error appears to be in '/home/student/demos/ch08/02_debug.yml': line 18, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: Display a custom message\n      ^ here\n"}
+2023-01-27 12:25:06,739 p=5226 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 12:25:06,739 p=5226 u=student n=ansible | serverb.lab.example.com    : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=1   
+2023-01-27 12:26:10,510 p=5264 u=student n=ansible | PLAY [Debug for Insights] **********************************************************************************************************************
+2023-01-27 12:26:10,519 p=5264 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 12:26:11,855 p=5264 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 12:26:11,867 p=5264 u=student n=ansible | TASK [copy file] *******************************************************************************************************************************
+2023-01-27 12:26:11,962 p=5264 u=student n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2023-01-27 12:26:11,963 p=5264 u=student n=ansible | fatal: [serverb.lab.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-01-27 12:26:11,963 p=5264 u=student n=ansible | ...ignoring
+2023-01-27 12:26:11,970 p=5264 u=student n=ansible | TASK [Display a message in the playbook output] ************************************************************************************************
+2023-01-27 12:26:11,984 p=5264 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "msg": "This will display during playbook run"
+}
+2023-01-27 12:26:11,991 p=5264 u=student n=ansible | TASK [Display a custom message] ****************************************************************************************************************
+2023-01-27 12:26:12,014 p=5264 u=student n=ansible | skipping: [serverb.lab.example.com]
+2023-01-27 12:26:12,021 p=5264 u=student n=ansible | TASK [Display the value in the variable] *******************************************************************************************************
+2023-01-27 12:26:12,048 p=5264 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "sav": {
+        "changed": false,
+        "exception": "Traceback (most recent call last):\n  File \"/usr/lib/python3.9/site-packages/ansible/plugins/action/copy.py\", line 466, in run\n    source = self._find_needle('files', source)\n  File \"/usr/lib/python3.9/site-packages/ansible/plugins/action/__init__.py\", line 1417, in _find_needle\n    return self._loader.path_dwim_relative_stack(path_stack, dirname, needle)\n  File \"/usr/lib/python3.9/site-packages/ansible/parsing/dataloader.py\", line 341, in path_dwim_relative_stack\n    raise AnsibleFileNotFound(file_name=source, paths=[to_native(p) for p in search])\nansible.errors.AnsibleFileNotFound: Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\n",
+        "failed": true,
+        "msg": "Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"
+    }
+}
+2023-01-27 12:26:12,058 p=5264 u=student n=ansible | TASK [Undefined variables] *********************************************************************************************************************
+2023-01-27 12:26:12,084 p=5264 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "my_undefined_variable": "VARIABLE IS NOT DEFINED!"
+}
+2023-01-27 12:26:12,103 p=5264 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 12:26:12,103 p=5264 u=student n=ansible | serverb.lab.example.com    : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=1   
+2023-01-27 12:28:06,920 p=5308 u=student n=ansible | ansible-playbook [core 2.13.0]
+  config file = /home/student/demos/ch08/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.9.10 (main, Feb  9 2022, 00:00:00) [GCC 11.2.1 20220127 (Red Hat 11.2.1-9)]
+  jinja version = 3.0.3
+  libyaml = True
+2023-01-27 12:28:06,920 p=5308 u=student n=ansible | Using /home/student/demos/ch08/ansible.cfg as config file
+2023-01-27 12:28:07,021 p=5308 u=student n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2023-01-27 12:28:07,021 p=5308 u=student n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2023-01-27 12:28:07,021 p=5308 u=student n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2023-01-27 12:28:07,021 p=5308 u=student n=ansible | PLAYBOOK: 02_debug.yml *************************************************************************************************************************
+2023-01-27 12:28:07,021 p=5308 u=student n=ansible | 1 plays in 02_debug.yml
+2023-01-27 12:28:07,022 p=5308 u=student n=ansible | PLAY [Debug for Insights] **********************************************************************************************************************
+2023-01-27 12:28:07,031 p=5308 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 12:28:08,425 p=5308 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 12:28:08,431 p=5308 u=student n=ansible | META: ran handlers
+2023-01-27 12:28:08,438 p=5308 u=student n=ansible | TASK [copy file] *******************************************************************************************************************************
+2023-01-27 12:28:08,527 p=5308 u=student n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2023-01-27 12:28:08,528 p=5308 u=student n=ansible | fatal: [serverb.lab.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-01-27 12:28:08,528 p=5308 u=student n=ansible | ...ignoring
+2023-01-27 12:28:08,534 p=5308 u=student n=ansible | TASK [Display a message in the playbook output] ************************************************************************************************
+2023-01-27 12:28:08,546 p=5308 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "msg": "This will display during playbook run"
+}
+2023-01-27 12:28:08,551 p=5308 u=student n=ansible | TASK [Display a custom message] ****************************************************************************************************************
+2023-01-27 12:28:08,571 p=5308 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "msg": "Hello Ralph"
+}
+2023-01-27 12:28:08,577 p=5308 u=student n=ansible | TASK [Display the value in the variable] *******************************************************************************************************
+2023-01-27 12:28:08,599 p=5308 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "sav": {
+        "changed": false,
+        "exception": "Traceback (most recent call last):\n  File \"/usr/lib/python3.9/site-packages/ansible/plugins/action/copy.py\", line 466, in run\n    source = self._find_needle('files', source)\n  File \"/usr/lib/python3.9/site-packages/ansible/plugins/action/__init__.py\", line 1417, in _find_needle\n    return self._loader.path_dwim_relative_stack(path_stack, dirname, needle)\n  File \"/usr/lib/python3.9/site-packages/ansible/parsing/dataloader.py\", line 341, in path_dwim_relative_stack\n    raise AnsibleFileNotFound(file_name=source, paths=[to_native(p) for p in search])\nansible.errors.AnsibleFileNotFound: Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\n",
+        "failed": true,
+        "msg": "Could not find or access '/tmp/hello.sh' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"
+    }
+}
+2023-01-27 12:28:08,605 p=5308 u=student n=ansible | TASK [Undefined variables] *********************************************************************************************************************
+2023-01-27 12:28:08,620 p=5308 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "my_undefined_variable": "VARIABLE IS NOT DEFINED!: 'my_undefined_variable' is undefined"
+}
+2023-01-27 12:28:08,633 p=5308 u=student n=ansible | META: ran handlers
+2023-01-27 12:28:08,639 p=5308 u=student n=ansible | META: ran handlers
+2023-01-27 12:28:08,640 p=5308 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 12:28:08,640 p=5308 u=student n=ansible | serverb.lab.example.com    : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2023-01-27 12:36:15,532 p=5373 u=student n=ansible | PLAY [Playbook command line options] ***********************************************************************************************************
+2023-01-27 12:36:25,199 p=5373 u=student n=ansible | Perform task: TASK: Gathering Facts (N)o/(y)es/(c)ontinue: *************************************************************************************
+2023-01-27 12:36:25,199 p=5373 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 12:36:26,598 p=5373 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 12:36:33,822 p=5373 u=student n=ansible | Perform task: TASK: task 1 (N)o/(y)es/(c)ontinue: **********************************************************************************************
+2023-01-27 12:36:39,271 p=5373 u=student n=ansible | Perform task: TASK: task 2 (N)o/(y)es/(c)ontinue: **********************************************************************************************
+2023-01-27 12:36:39,272 p=5373 u=student n=ansible | TASK [task 2] **********************************************************************************************************************************
+2023-01-27 12:36:45,831 p=5373 u=student n=ansible | changed: [serverb.lab.example.com] => (item=postfix)
+2023-01-27 12:36:49,606 p=5373 u=student n=ansible | changed: [serverb.lab.example.com] => (item=dovecot)
+2023-01-27 12:37:03,423 p=5373 u=student n=ansible | Perform task: TASK: task 3 (N)o/(y)es/(c)ontinue: **********************************************************************************************
+2023-01-27 12:37:03,423 p=5373 u=student n=ansible | TASK [task 3] **********************************************************************************************************************************
+2023-01-27 12:37:04,504 p=5373 u=student n=ansible | changed: [serverb.lab.example.com]
+2023-01-27 12:37:04,515 p=5373 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 12:37:04,516 p=5373 u=student n=ansible | serverb.lab.example.com    : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-01-27 12:39:41,629 p=5441 u=student n=ansible | PLAY [Playbook command line options] ***********************************************************************************************************
+2023-01-27 12:39:41,637 p=5441 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 12:39:43,082 p=5441 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 12:39:43,088 p=5441 u=student n=ansible | TASK [task 2] **********************************************************************************************************************************
+2023-01-27 12:39:44,194 p=5441 u=student n=ansible | ok: [serverb.lab.example.com] => (item=postfix)
+2023-01-27 12:39:45,062 p=5441 u=student n=ansible | ok: [serverb.lab.example.com] => (item=dovecot)
+2023-01-27 12:39:45,069 p=5441 u=student n=ansible | TASK [task 3] **********************************************************************************************************************************
+2023-01-27 12:39:45,824 p=5441 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 12:39:45,836 p=5441 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 12:39:45,837 p=5441 u=student n=ansible | serverb.lab.example.com    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-01-27 13:01:57,845 p=5533 u=student n=ansible | PLAY [Test for check condition] ****************************************************************************************************************
+2023-01-27 13:01:57,853 p=5533 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 13:01:59,292 p=5533 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 13:01:59,304 p=5533 u=student n=ansible | TASK [create a file] ***************************************************************************************************************************
+2023-01-27 13:01:59,769 p=5533 u=student n=ansible | changed: [serverb.lab.example.com]
+2023-01-27 13:01:59,774 p=5533 u=student n=ansible | TASK [display a file] **************************************************************************************************************************
+2023-01-27 13:02:00,220 p=5533 u=student n=ansible | skipping: [serverb.lab.example.com]
+2023-01-27 13:02:00,231 p=5533 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 13:02:00,231 p=5533 u=student n=ansible | serverb.lab.example.com    : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2023-01-27 13:03:24,935 p=5582 u=student n=ansible | PLAY [Test for check condition] ****************************************************************************************************************
+2023-01-27 13:03:24,943 p=5582 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 13:03:26,341 p=5582 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 13:03:26,352 p=5582 u=student n=ansible | TASK [create a file] ***************************************************************************************************************************
+2023-01-27 13:03:26,848 p=5582 u=student n=ansible | changed: [serverb.lab.example.com]
+2023-01-27 13:03:26,855 p=5582 u=student n=ansible | TASK [display a file] **************************************************************************************************************************
+2023-01-27 13:03:27,310 p=5582 u=student n=ansible | fatal: [serverb.lab.example.com]: FAILED! => {"changed": true, "cmd": ["cat", "/tmp/test.txt"], "delta": "0:00:00.003235", "end": "2023-01-27 13:03:27.266564", "msg": "non-zero return code", "rc": 1, "start": "2023-01-27 13:03:27.263329", "stderr": "cat: /tmp/test.txt: No such file or directory", "stderr_lines": ["cat: /tmp/test.txt: No such file or directory"], "stdout": "", "stdout_lines": []}
+2023-01-27 13:03:27,312 p=5582 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 13:03:27,312 p=5582 u=student n=ansible | serverb.lab.example.com    : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-01-27 13:04:04,876 p=5630 u=student n=ansible | PLAY [Test for check condition] ****************************************************************************************************************
+2023-01-27 13:04:04,884 p=5630 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 13:04:06,057 p=5630 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 13:04:06,070 p=5630 u=student n=ansible | TASK [create a file] ***************************************************************************************************************************
+2023-01-27 13:04:06,560 p=5630 u=student n=ansible | changed: [serverb.lab.example.com]
+2023-01-27 13:04:06,566 p=5630 u=student n=ansible | TASK [display a file] **************************************************************************************************************************
+2023-01-27 13:04:07,044 p=5630 u=student n=ansible | changed: [serverb.lab.example.com]
+2023-01-27 13:04:07,055 p=5630 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 13:04:07,055 p=5630 u=student n=ansible | serverb.lab.example.com    : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-01-27 13:06:44,990 p=5691 u=student n=ansible | PLAY [save file if does not exist] *************************************************************************************************************
+2023-01-27 13:06:44,998 p=5691 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 13:06:46,452 p=5691 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 13:06:46,463 p=5691 u=student n=ansible | TASK [check for file] **************************************************************************************************************************
+2023-01-27 13:06:46,985 p=5691 u=student n=ansible | ok: [serverb.lab.example.com]
+2023-01-27 13:06:46,991 p=5691 u=student n=ansible | TASK [Print JSON] ******************************************************************************************************************************
+2023-01-27 13:06:47,013 p=5691 u=student n=ansible | ok: [serverb.lab.example.com] => {
+    "results": {
+        "changed": false,
+        "failed": false,
+        "stat": {
+            "exists": false
+        }
+    }
+}
+2023-01-27 13:06:47,026 p=5691 u=student n=ansible | TASK [copy based on results] *******************************************************************************************************************
+2023-01-27 13:06:47,890 p=5691 u=student n=ansible | changed: [serverb.lab.example.com]
+2023-01-27 13:06:47,901 p=5691 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 13:06:47,902 p=5691 u=student n=ansible | serverb.lab.example.com    : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-01-27 13:09:10,870 p=5766 u=student n=ansible | PLAY [Checking for stat and assert] ************************************************************************************************************
+2023-01-27 13:09:10,878 p=5766 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 13:09:12,470 p=5766 u=student n=ansible | ok: [servera.lab.example.com]
+2023-01-27 13:09:12,482 p=5766 u=student n=ansible | TASK [Check for critical conditions] ***********************************************************************************************************
+2023-01-27 13:09:12,505 p=5766 u=student n=ansible | fatal: [servera.lab.example.com]: FAILED! => {
+    "assertion": "my_param <= 100",
+    "changed": false,
+    "evaluated_to": false,
+    "msg": "'my_param' must be between 0 and 100"
+}
+2023-01-27 13:09:12,506 p=5766 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 13:09:12,506 p=5766 u=student n=ansible | servera.lab.example.com    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-01-27 13:09:48,093 p=5798 u=student n=ansible | PLAY [Checking for stat and assert] ************************************************************************************************************
+2023-01-27 13:09:48,101 p=5798 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 13:09:49,266 p=5798 u=student n=ansible | ok: [servera.lab.example.com]
+2023-01-27 13:09:49,278 p=5798 u=student n=ansible | TASK [Check for critical conditions] ***********************************************************************************************************
+2023-01-27 13:09:49,297 p=5798 u=student n=ansible | ok: [servera.lab.example.com] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+2023-01-27 13:09:49,314 p=5798 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 13:09:49,314 p=5798 u=student n=ansible | servera.lab.example.com    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-01-27 13:11:29,308 p=5838 u=student n=ansible | PLAY [Checking for stat and assert] ************************************************************************************************************
+2023-01-27 13:11:29,316 p=5838 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 13:11:30,767 p=5838 u=student n=ansible | ok: [servera.lab.example.com]
+2023-01-27 13:11:30,779 p=5838 u=student n=ansible | TASK [Check for presense of a file] ************************************************************************************************************
+2023-01-27 13:11:31,249 p=5838 u=student n=ansible | ok: [servera.lab.example.com]
+2023-01-27 13:11:31,255 p=5838 u=student n=ansible | TASK [Display the value] ***********************************************************************************************************************
+2023-01-27 13:11:31,278 p=5838 u=student n=ansible | ok: [servera.lab.example.com] => {
+    "val": {
+        "changed": false,
+        "failed": false,
+        "stat": {
+            "exists": false
+        }
+    }
+}
+2023-01-27 13:11:31,289 p=5838 u=student n=ansible | TASK [Test fail module] ************************************************************************************************************************
+2023-01-27 13:11:31,307 p=5838 u=student n=ansible | fatal: [servera.lab.example.com]: FAILED! => {"changed": false, "msg": "File ABC not found"}
+2023-01-27 13:11:31,308 p=5838 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 13:11:31,309 p=5838 u=student n=ansible | servera.lab.example.com    : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-01-27 13:15:07,221 p=5884 u=student n=ansible | PLAY [Checking for stat and assert] ************************************************************************************************************
+2023-01-27 13:15:07,228 p=5884 u=student n=ansible | TASK [Gathering Facts] *************************************************************************************************************************
+2023-01-27 13:15:08,638 p=5884 u=student n=ansible | ok: [servera.lab.example.com]
+2023-01-27 13:15:08,650 p=5884 u=student n=ansible | TASK [Check for presense of a file] ************************************************************************************************************
+2023-01-27 13:15:09,165 p=5884 u=student n=ansible | ok: [servera.lab.example.com]
+2023-01-27 13:15:09,172 p=5884 u=student n=ansible | TASK [fail] ************************************************************************************************************************************
+2023-01-27 13:15:09,186 p=5884 u=student n=ansible | fatal: [servera.lab.example.com]: FAILED! => {"changed": false, "msg": "Failed as requested from task"}
+2023-01-27 13:15:09,187 p=5884 u=student n=ansible | PLAY RECAP *************************************************************************************************************************************
+2023-01-27 13:15:09,187 p=5884 u=student n=ansible | servera.lab.example.com    : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

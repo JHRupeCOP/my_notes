@@ -1,0 +1,22 @@
+---
+- name: Playbook command line options
+  hosts: serverb
+  tasks:
+    - name: task 1
+      ansible.builtin.copy:
+        src: /tmp/hello.sh
+        dest: /tmp/hello.sh
+
+    - name: task 2
+      ansible.builtin.dnf:
+        name: "{{item}}"
+        state: installed
+      loop:
+        - postfix
+        - dovecot
+
+    - name: task 3
+      ansible.builtin.service:
+        name: postfix
+        state: started
+

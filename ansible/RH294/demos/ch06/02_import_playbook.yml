@@ -1,0 +1,6 @@
+
+- name: Prepare the web server
+  ansible.builtin.import_playbook: pbook/web.yml
+
+- name: Prepare the database server
+  ansible.builtin.import_playbook: pbook/db.yml

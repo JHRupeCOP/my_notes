@@ -1,0 +1,15 @@
+# This is a requirements file to download opensource collections from the Ansible Galaxy website
+# Before running the command modify your ansible.cfg and add the following parameter to the defaults section
+# collections_path = ./collections:/usr/share/ansible/collections
+
+
+# Use the following command to make use of this requirements file
+# ansible-galaxy collection  install -r 06_requirements.yml 
+# NOTE: This will create the collections folder in your project directory and install stated colleions and their dependencies
+
+---
+collections:
+  - name: community.aws
+  - name: f5networks.f5_modules
+
+

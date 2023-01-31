@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: BSD-3-Clause
+---
+- hosts: all
+  tasks:
+    - name: Configure ethernet paramters
+      include_role:
+        name: linux-system-roles.network
+      vars:
+        network_connections:
+          - name: "{{ network_interface_name1 }}"
+            state: up
+            type: ethernet
+            ip:
+              dhcp4: false
+              auto6: false
+            ethtool:
+              features:
+                gro: false
+                gso: true
+                tx_sctp_segmentation: false

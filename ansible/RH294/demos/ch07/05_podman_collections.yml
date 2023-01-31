@@ -1,0 +1,29 @@
+# install the containers.podman content collection
+- name: Testing containers.podman collections
+  hosts: localhost
+  become: no
+  vars:
+    password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          62316538353762613933636563616565643336623032386432643330653935376562323533306239
+          3739333163316637656439393363613862393961663561360a386330333330353230313530346565
+          65656261663136613537306337353239663266383831393435336162363865366639613237643365
+          6632653130626564320a376362663066376366636261303732313732363566363530633431633831
+          3663
+  tasks:
+    - name: Login onto the redhat.io registry
+      containers.podman.podman_login:
+        username: techiesanjay
+        password: '{{ password }}'
+        registry: registry.access.redhat.com
+
+    - name: Pull the apache rhel7 container image
+      containers.podman.podman_image:
+        name: registry.access.redhat.com/rhscl/httpd-24-rhel7
+
+    - name: Run the apache container
+      containers.podman.podman_container:
+        name: my-apache
+        image: httpd-24-rhel7
+        state: started
+

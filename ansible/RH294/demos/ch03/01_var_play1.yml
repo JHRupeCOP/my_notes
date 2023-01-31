@@ -1,0 +1,12 @@
+---
+- name: Play to create a user on servera
+  hosts: servera.lab.example.com
+  vars:
+    uname: jack
+    fname: "Jack Ma"
+  tasks:
+    - name: Creating user {{uname}}
+      ansible.builtin.user:
+        name: "{{ uname }}"
+        comment: "{{ fname }}"
+

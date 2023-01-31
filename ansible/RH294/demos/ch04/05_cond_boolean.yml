@@ -1,0 +1,14 @@
+---
+- name: Conditional based on boolean
+  hosts: servera
+  vars:
+    install: false 
+                        
+  tasks:
+    - name: Dovecot being installed conditionally.
+      ansible.builtin.dnf:
+        name: dovecot
+        state: present
+      when: install != false
+      #when: not install
+

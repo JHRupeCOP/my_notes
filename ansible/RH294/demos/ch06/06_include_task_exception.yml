@@ -1,0 +1,26 @@
+# Restrictions for using include_tasks
+
+
+- name: Installation of packages
+  hosts: servera
+  vars:
+    file_name: facts                            # Comment to use host_vars
+    files:
+      - memory
+      - kernel
+  tasks:
+    - name: Include Tasks
+      ansible.builtin.include_tasks: "tasks/{{file_name}}.yml"  # Any variable, fact or host or group variable is OK
+      when: ansible_distribution == "RedHat"    # conditionals are OK
+
+    - name: All kinds of HW stats
+      ansible.builtin.include_tasks: "tasks/{{item}}.yml"
+      loop: "{{files}}"                         # loops are OK
+
+  handlers:
+    - name: test
+      ansible.builtin.debug:
+        msg: "Looks like i can be called from an included task"
+
+# You cant use --list-tasks to see included tasks
+# You can use notify on include_tasks

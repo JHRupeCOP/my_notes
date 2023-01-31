@@ -1,0 +1,17 @@
+---
+- name: Looping register variables
+  gather_facts: no
+  hosts: localhost
+  become: no
+  tasks:
+    - name: Looping Echo Task
+      ansible.builtin.shell: "echo {{ item }} has escaped"
+      loop:
+        - JOHNNY
+        - MAGGIE
+      register: capture
+
+    - name: Show stdout from the previous task.
+      ansible.builtin.debug:
+        msg: "HEADLINES: {{ item.stdout }}"
+      loop: "{{capture['results']}}"

@@ -1,0 +1,10 @@
+- name: DEMO for the synchronize module
+  hosts: serverb
+  tasks:
+    - name: synchronize local and remote locations
+      ansible.builtin.synchronize:
+        src: myfiles
+        dest: /tmp
+
+
+# Guided Exercise: SG Pg 198  VT

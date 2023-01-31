@@ -1,0 +1,12 @@
+- name: DEMO for stat module
+  hosts: serverb
+  tasks:
+    - name: Verify the checksum of a file  
+      ansible.builtin.stat:
+        path: /myshare/touched_file
+        get_attributes: yes
+      register: result
+    
+    - ansible.builtin.debug:
+        var: result
+

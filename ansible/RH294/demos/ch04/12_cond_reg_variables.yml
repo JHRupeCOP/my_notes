@@ -1,0 +1,22 @@
+---
+- name: Conditional with registered variables
+  hosts: servera
+  tasks:
+    - name: Install BAD package
+      ansible.builtin.yum:
+        name: BADpackage
+        state: latest
+      ignore_errors: yes
+      register: res
+
+    - name: Display status captured in res
+      ansible.builtin.debug:
+        var: res
+
+    - name: Start BAD package
+      ansible.builtin.service:
+        name: badpkg
+        state: started
+      when: res.rc == 0
+
+#EX
