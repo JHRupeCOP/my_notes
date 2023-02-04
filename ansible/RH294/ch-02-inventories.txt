@@ -49,5 +49,16 @@ server[01:20].example.com  --> includes servers01 - 20, but not server1, etc
 
 
 Verify the inventory
+Use the inventory sub command to validate a host is in an inventory 
+ex. search for specific host 
+ansible-navigator invenory -m stdout --host servera.example.com
+
+ex. display the entire inventory 
+ansible-navigator -m stdout --list
+
+ex. to browse the inventory 
+ansible-navigator inventory
+
+you can override 
 
 
