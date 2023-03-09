@@ -1,2 +1,10 @@
 ansible.cfg - configures behavior of several Ansible tools
-ansible-navigator.yml
+ansible-navigator.yml - configures the default options for ansible-navigator 
+
+* ansible.cfg
+- consistes of several sections; each section containing settings defined as key-value pairs
+
+* [defaults] - sets defaults for Ansible operation
+* [privilege_escalation] - hos ansible performs privledge escalation
+
+

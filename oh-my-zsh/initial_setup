@@ -1,0 +1,47 @@
+1. ensure wget, git, zsh packages are installed
+   dnf install wget git zsh
+
+2, Change shell to zsh
+   chsh -s /bin/zsh
+
+3. Download project
+   wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+
+4. Copy template .zshrc
+   cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+
+5. Personalize the environment
+   ZSH_THEM="bira"
+   
+   Uncomment:
+   zstyle ':omz:update' mode auto
+   zstyle ':omz:update' frequency 13
+   ENABLE_CORRECTION="true"
+   COMPLETION_WAITING_DOTS="true"
+   HIST_STAMPS="mm/dd/yyyy"
+   **block**
+   if [[ -n $SSH_CONNECTION ]]; then
+     export EDITOR='vim'
+   else
+     export EDITOR='mvim'
+   fi
+
+   Optional additions
+   export ANSIBLE_NAVIGATOR_CONFIG=/home/ruppej/.config/ansible/ansible-navigator-cfg.yml
+   export ANSIBLE_CFG=/home/ruppej/.config/ansible/ansible.cfg
+   export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_password
+
+6. Custom aliases
+   ~/.oh-my-zsh/custom/alias.zsh
+
+# Source Reload
+alias reload.zsh="source ~/.zshrc"
+alias reload.profile="source ~/.bash_profile"
+alias reload.term="source ~/.bash_profile && source ~/.zshrc"
+
+# ls
+alias ll="ls -AlhG"
+ 
+# Perfected ls
+cll() { ls -AlhG "$@" | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %0o ",k);print}' | cut -c 1-5,21-; }
+  

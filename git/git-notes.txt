@@ -8,7 +8,10 @@ Display local user email
 git config user.email
 
 Set local user email
-git config --glboal user,email "james.ruppert@conocophillips.com"
+git config --global user.email "james.ruppert@conocophillips.com"
+
+Set credential cache
+git config --global credential.helper \ 'cache --timeout=3600'
 
 Initialize Repo
 git init
