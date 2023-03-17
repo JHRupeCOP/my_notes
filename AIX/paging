@@ -1,0 +1,11 @@
+# List paging volumes 
+lsps -a 
+
+
+# SVMON - snapshot of virtual memory
+
+-P [pid1...pidn] display memory usage for process; if list is empty display all pids
+
+
+example:
+ svmon -P -O summary=basic,unit=MB,sortentity=pgsp ( shows all pids using swap) 
