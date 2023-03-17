@@ -1,0 +1,12 @@
+df "disk free" command
+
+-a displays all
+-h human consumable
+-m megabytes
+-T add file system types
+-t show only this type
+  df -t xfs # only xfs file systems
+-x exclude file syste, 
+  df -x xfs # exclude this type - 1 to 1 to exclude multiple fs type need multiple -x
+
+

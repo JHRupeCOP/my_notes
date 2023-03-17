@@ -1,0 +1,12 @@
+Install the NFS server package
+- nfs-utils
+
+Enable in systemd
+# systemctl enable --now nfs-server rpcbind
+
+iUndate /etc/exports and export the filesystems
+# exportfs -a
+
+Validate remotely
+# showmount -e <nfs server>
+
