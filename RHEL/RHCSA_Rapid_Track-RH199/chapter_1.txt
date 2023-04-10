@@ -1,0 +1,11 @@
+Vim Operating Modes
+
+command mode - mode Vim starts in, used for navigation, cut and paste, and other text modification
+
+edit/insert mode - the i keystroke enters insert mode, all typed text becomes content until the Esc key is pressed returning to command mode
+
+visual mode - v keystroke enters visual mode, where multiple characters might be selected for text manipulation. Use Shift+V for multiline and Ctrl+V for block selection. To exit the visual mode, use the v, Shift+V, or Ctrl+V keystrokes
+
+extended command mode - : keystroke enters; used for tasks such as writing to a file and exiting
+
+

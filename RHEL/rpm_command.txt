@@ -1,0 +1,13 @@
+RPM Command
+
+Queries
+rpm {-q|--query} 
+
+Display a packages information
+rpm -qi vim-ehanced
+
+Display a package's dependancies
+# rpm -qR vim-enhanced
+
+List files in the package
+# rpm -ql vim-enhanced
