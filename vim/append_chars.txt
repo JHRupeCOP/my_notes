@@ -1,0 +1,9 @@
+Add a "*" to end of all lines
+:norm A*
+
+This is what it means:
+ %       = for every line
+ norm    = type the following commands
+ A*      = append '*' to the end of current line
+
+You can replace the % with a range 
