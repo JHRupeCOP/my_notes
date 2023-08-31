@@ -1,0 +1,89 @@
+## Query all installed packages
+rpm -qa 
+
+## Query all packages listing by install time
+rpm -qa --last 
+
+## get information about an installed package
+$ rpm -qi grafana-enterprise                                                                                      1 ↵
+Name        : grafana-enterprise
+Version     : 10.1.0
+Release     : 1
+Architecture: x86_64
+Install Date: Mon 28 Aug 2023 09:23:12 AM CDT
+Group       : default
+Size        : 540303598
+License     : unknown
+Signature   : RSA/SHA512, Fri 25 Aug 2023 08:54:37 AM CDT, Key ID 963fa27710458545
+Source RPM  : grafana-enterprise-10.1.0-1.src.rpm
+Build Date  : Thu 24 Aug 2023 03:25:12 AM CDT
+Build Host  : localhost
+Relocations : /
+Packager    : contact@grafana.com
+Vendor      : "Grafana Labs"
+URL         : https://grafana.com
+Summary     : "Grafana Enterprise"
+Description :
+"Grafana Enterprise"
+
+## Determine what package a file belongs to
+$ which xz
+/usr/bin/xz
+╭─ruppej@ruppejtst2 ~
+╰─$ rpm -qf /usr/bin/xz
+xz-5.2.4-4.el8_6.x86_64
+
+With command subsitution 
+$ rpm -qf $(which xz)
+xz-5.2.4-4.el8_6.x86_64
+
+## List files in a package
+$ rpm -ql xz
+/etc/profile.d/colorxzgrep.csh
+/etc/profile.d/colorxzgrep.sh
+/usr/bin/unxz
+...
+
+Look for binaries only
+$ rpm -ql xz | grep bin
+/usr/bin/unxz
+/usr/bin/xz
+/usr/bin/xzcat
+/usr/bin/xzcmp
+/usr/bin/xzdec
+...
+
+## Query for documentation
+$ rpm -qd xz                                                                                                    130 ↵
+/usr/share/doc/xz/AUTHORS
+/usr/share/doc/xz/COPYING
+/usr/share/doc/xz/COPYING.GPLv2
+/usr/share/doc/xz/NEWS
+/usr/share/doc/xz/README
+/usr/share/doc/xz/THANKS
+/usr/share/doc/xz/TODO
+/usr/share/doc/xz/faq.txt
+/usr/share/doc/xz/history.txt
+/usr/share/doc/xz/lzma-file-format.txt
+/usr/share/doc/xz/xz-file-format.txt
+/usr/share/man/man1/unxz.1.gz
+/usr/share/man/man1/xz.1.gz
+/usr/share/man/man1/xzcat.1.gz
+/usr/share/man/man1/xzcmp.1.gz
+/usr/share/man/man1/xzdec.1.gz
+/usr/share/man/man1/xzdiff.1.gz
+/usr/share/man/man1/xzegrep.1.gz
+/usr/share/man/man1/xzfgrep.1.gz
+/usr/share/man/man1/xzgrep.1.gz
+/usr/share/man/man1/xzless.1.gz
+/usr/share/man/man1/xzmore.1.gz
+
+## List configuration files
+$ rpm -qc openssh-server
+/etc/pam.d/sshd
+/etc/ssh/sshd_config
+/etc/sysconfig/sshd
+
+## To query an RPM package that is local but not installed 
+$ rpm -qip zsh
+
