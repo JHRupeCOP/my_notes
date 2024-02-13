@@ -1,0 +1,29 @@
+Here in this example, a file name backup.tar needs to be copied or synced to /tmp/backups/ folder.
+# rsync -zvh backup.tar.gz /tmp/backups/
+
+The following command will transfer or sync all the files from one directory to a different directory in the same machine.
+# rsync -avzh /root/rpmpkgs /tmp/backups/
+
+To copy a directory from a local server to a remote server, you can use the following command, which will sync a directory from a local to a remote machine.
+# rsync -avzh /root/rpmpkgs root@192.168.0.141:/root/
+
+Copy a File from a Remote Server to a Local Server with SSH
+# rsync -avzhe ssh root@192.168.0.141:/root/anaconda-ks.cfg /tmp
+
+-a archive mode; equals -rlptgoD (no -H,-A,-X)
+-A preserve ACLS (implies -p)
+-D preserve device files (super-user only) [--devices] and perserve special file [--special]
+-g perserve group
+-h human-readable output
+-H preserve hard links
+-l copy symlinks as symlinks
+-o preserve owner (super-user only
+-p preserve permissions
+-r recurse into directories
+-t perserve modification times
+-v verbose 
+-X preserve extended attributes
+-z compress
+--progress show progress during transfer
+
+

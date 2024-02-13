@@ -1,0 +1,31 @@
+firewall-cmd --get-default-zone                  Show default zone
+
+firewall-cmd --set-default-zone=zone             Set the default zone
+
+firewall-cmd --get-zones                         List all available zones.
+
+firewall-cmd --get-active-zones                  List all active zones
+
+firewall-cmd --get-services                      List all services firewalld is aware of
+
+firewall-cmd --add-source=CIDR [--zone=zone]     Route all traffic coming from the IP address or network/netmask to the specified zone.
+
+firewall-cmd --remove-source=CIDR [--zone=zone]  Remove the rule routing all traffic from the zone coming from the IP address or network/netmask network.
+
+firewall-cmd --add-interface=interface [--zone=zone]     Route all traffic coming from interface to the specified zone.
+
+firewall-cmd --change-interface=interface [--zone=zone]  Associate the interface with zone instead of its current zone.
+
+firewall-cmd --list-all [--zone=zone]                    List all configured interfaces, sources, services, and ports for zone.
+
+firewall-cmd --list-all-zones                            Retrieve all information for all zones (interfaces, sources, ports, services).
+
+firewall-cmd --add-service=service [--zone=zone]         Allow traffic to service.
+
+firewall-cmd --add-port=port/protocol [--zone=zone]      Allow traffic to the port/protocol port.
+
+firewall-cmd --remove-service=service [--zone=zone]      Remove service from allowed list for the zone.
+
+firewall-cmd --remove-port=port/protocol [--zone=zone]   Remove the port/protocol ports from the allowed list for the zone.
+
+firewall-cmd --reload                                    Drop the runtime configuration and apply the persistent configuration.
