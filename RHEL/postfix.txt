@@ -1,0 +1,8 @@
+view queued mail
+postqueue -p
+
+Purge a single email
+postsuper -d {message id }
+
+Purge all email
+postsuper -d ALL

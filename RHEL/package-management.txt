@@ -1,0 +1,7 @@
+Uninstall package without removing dependancies
+
+RHEL 7 
+rpm -e --nodeps <package-name>
+
+RHEL 8 or higher
+dnf remove <package-name> --noautoremove

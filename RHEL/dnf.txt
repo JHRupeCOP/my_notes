@@ -1,0 +1,105 @@
+dnf updateinfo - will display summary counts of available packages
+
+
+
+# dnf updateinfo
+Updating Subscription Management repositories.
+Last metadata expiration check: 3:43:24 ago on Mon 17 Apr 2023 05:52:18 AM CDT.
+Updates Information Summary: available
+    3 Security notice(s)
+        2 Important Security notice(s)
+        1 Moderate Security notice(s)
+    9 Bugfix notice(s)
+dnf updateinfo --bugfix  - summarizes bugfixes only 
+
+
+
+# dnf updateinfo --bugfix
+Updating Subscription Management repositories.
+Last metadata expiration check: 4:09:15 ago on Mon 17 Apr 2023 05:52:18 AM CDT.
+Updates Information Summary: available
+    9 Bugfix notice(s)
+dnf updateinfo --enhancement - summarizes available enhancements
+
+<* example needed *>
+
+dnf updateinfo --security - summarizes available security updates
+
+
+
+dnf updateinfo --security
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:14:43 ago on Mon 17 Apr 2023 10:03:28 AM CDT.
+Updates Information Summary: available
+    3 Security notice(s)
+        2 Important Security notice(s)
+        1 Moderate Security notice(s)
+ The  switch --info can be appended to give additional information
+
+
+
+# dnf updateinfo --security --info
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:17:46 ago on Mon 17 Apr 2023 10:03:28 AM CDT.
+===============================================================================
+  Important: kernel security, bug fix, and enhancement update
+===============================================================================
+  Update ID: RHSA-2023:1566
+       Type: security
+    Updated: 2023-04-04 03:50:59
+       Bugs: 2150272 - CVE-2022-4269 kernel: net: CPU soft lockup in TC mirred egress-to-ingress action
+           : 2152548 - CVE-2022-4378 kernel: stack overflow in do_proc_dointvec and proc_skip_spaces
+           : 2159505 - CVE-2023-0386 kernel: FUSE filesystem low-privileged user privileges escalation
+           : 2163379 - CVE-2023-0266 ALSA: pcm: Move rwsem lock inside snd_ctl_elem_read to prevent UAF
+       CVEs: CVE-2022-4269
+           : CVE-2022-4378
+           : CVE-2023-0266
+           : CVE-2023-0386
+<*list truncated*>
+To determine if a server is affected by a specific CVE
+
+
+
+# dnf updateinfo list --cve=CVE-2022-4304
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:22:29 ago on Mon 17 Apr 2023 10:03:28 AM CDT.
+RHSA-2023:1405 Important/Sec. openssl-1:1.1.1k-9.el8_7.x86_64
+RHSA-2023:1405 Important/Sec. openssl-libs-1:1.1.1k-9.el8_7.x86_64
+To determine if a server is affected by a Red Hat security advisory
+
+
+
+# dnf updateinfo --advisories RHSA-2023:1569
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:56:39 ago on Mon 17 Apr 2023 10:03:28 AM CDT.
+Updates Information Summary: available
+    1 Security notice(s)
+        1 Moderate Security notice(s)
+with the --info
+
+
+
+# dnf updateinfo --advisories RHSA-2023:1569 --info
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:56:50 ago on Mon 17 Apr 2023 10:03:28 AM CDT.
+===============================================================================
+  Moderate: gnutls security and bug fix update
+===============================================================================
+  Update ID: RHSA-2023:1569
+       Type: security
+    Updated: 2023-04-04 03:51:02
+       Bugs: 2131152 - trap invalid opcode ip:7feef81809fe sp:7fee997419c0 error:0 in libgnutls.so.30.28.2[7feef8040000+1dd000] [rhel-8.7.0.z]
+           : 2162596 - CVE-2023-0361 gnutls: timing side-channel in the TLS RSA key exchange code
+       CVEs: CVE-2023-0361
+Description: The gnutls packages provide the GNU Transport Layer Security (GnuTLS) library, which implements cryptographic algorithms and protocols such as SSL, TLS, and DTLS.
+           :
+           : Security Fix(es):
+           :
+           : * gnutls: timing side-channel in the TLS RSA key exchange code (CVE-2023-0361)
+           :
+           : For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.
+           :
+           : Bug Fix(es):
+           :
+           : * trap invalid opcode ip:7feef81809fe sp:7fee997419c0 error:0 in libgnutls.so.30.28.2[7feef8040000+1dd000] (BZ#2131152)
+   Severity: Moderate
