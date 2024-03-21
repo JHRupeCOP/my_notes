@@ -8,3 +8,9 @@ nmcli con modify "Wired connection 1" connection.id ens192 # Changes the connect
 
 nmcli con mod ens192 ipv4.method auto # Change to DHCP IP
 
+nmcli connection mod System\ ens192 ipv4.dns-search "conocophillips.net conoco.net" # updates dns search domains
+
+nmcli con show System\ ens192 # shows connection settings 
+
+
+
