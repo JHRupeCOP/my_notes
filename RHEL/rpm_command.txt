@@ -11,3 +11,6 @@ Display a package's dependancies
 
 List files in the package
 # rpm -ql vim-enhanced
+
+List installed packages by name only
+rpm -qa --qf "%{NAME}\n"
