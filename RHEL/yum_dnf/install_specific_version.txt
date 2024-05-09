@@ -1,0 +1,25 @@
+List available versions
+** expand command converts tabs to spaces 
+
+# dnf --showduplicates list openssl | expand
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:01:13 ago on Thu 09 May 2024 07:34:34 AM CDT.
+Installed Packages
+openssl.x86_64          1:3.0.7-27.el9            @rhel-9-for-x86_64-baseos-rpms
+Available Packages
+openssl.x86_64          1:3.0.1-20.el9_0          rhel-9-for-x86_64-baseos-rpms
+openssl.x86_64          1:3.0.1-23.el9_0          rhel-9-for-x86_64-baseos-rpms
+
+
+Install specific version
+yum install <package name>-<version info>
+** remove the arch from the package name
+# dnf install openssl-1:3.0.1-23.el9_0
+
+Command repoquery(installed in package yum-utils) will list the package name
+# repoquery --showduplicates openssl
+Updating Subscription Management repositories.
+Last metadata expiration check: 0:06:13 ago on Thu 09 May 2024 07:34:34 AM CDT.
+openssl-1:3.0.1-20.el9_0.x86_64
+openssl-1:3.0.1-23.el9_0.x86_64
+openssl-1:3.0.1-41.el9_0.x86_64
