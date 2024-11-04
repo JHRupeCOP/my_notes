@@ -1,0 +1,6 @@
+# List all failed units
+systemctl list-units --state=failed
+systemctl --failed
+
+# Start and enable a unit
+systemctl enable --now

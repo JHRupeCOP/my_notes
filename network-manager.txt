@@ -12,5 +12,9 @@ nmcli connection mod System\ ens192 ipv4.dns-search "conocophillips.net conoco.n
 
 nmcli con show System\ ens192 # shows connection settings 
 
+# Set a manual IP
+nmcli c modify "Wired connection 1" ipv4.address "158.139.136.7/24" ipv4.gateway "158.139.136.1" ipv4.dns "158.139.212.31,158.139.221.60" ipv4.dns-search "conocophillips.net,conoco.net" ipv4.method "manual"
 
 
+# disable IPv6
+nmcli c m "Wired connection 1" ipv6.method "disabled"
