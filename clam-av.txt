@@ -1,0 +1,22 @@
+# Install
+
+## RHEL -
+Make sure EPEL repo is active
+Update to latest version
+  dnf update
+  (reboot if required)
+Install ClamAV
+  dnf install clamav clamav-data clamav-update
+
+Update to the latest dats
+  freshclam
+
+## Ubuntu
+apt-get install clamav clamav-daemon -y
+
+# Running 
+Basic scan:
+clamscan /path
+
+Recursive scan
+clamscan -r /path
